@@ -19,8 +19,11 @@ services:
       KC_HEALTH_ENABLED: ${KC_HEALTH_ENABLED}
       KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN}
       KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
-    # command: start
-    command: start-dev
+    command:
+      - start
+      - --http-enabled=true
+      - --hostname=${KC_HOSTNAME}
+    # command: start-dev
     depends_on:
       - keycloakdb
     ports:
